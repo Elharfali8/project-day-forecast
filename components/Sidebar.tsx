@@ -1,10 +1,12 @@
 'use client'
 
 import { CloudSun, Grid, HelpCircle, LogOut, Map, Menu } from 'lucide-react'
+import { usePathname } from 'next/navigation'
 import React, { useState } from 'react'
 
 const Sidebar = () => {
     const [sideIsOpen, setSideIsOpen] = useState(false)
+    const pathname = usePathname()
 
     const handleSidebar = () => {
         setSideIsOpen(!sideIsOpen)

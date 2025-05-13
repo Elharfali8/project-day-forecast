@@ -1,11 +1,15 @@
+import MainWeather from '@/components/MainWeather'
 import { ModeToggle } from '@/components/ModeToggle'
 import React from 'react'
 
 const WeatherPage = () => {
   return (
-    <div>
-      hola
-    </div>
+    <main className='grid lg:grid-cols-9 lg:gap-8 gap-4'>
+      <div className='col-span-1 lg:col-span-4 '>
+        <MainWeather />
+      </div>
+
+    </main>
   )
 }
 
