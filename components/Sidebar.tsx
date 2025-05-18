@@ -1,6 +1,7 @@
 'use client'
 
 import { CloudSun, Grid, HelpCircle, LogOut, Map, Menu } from 'lucide-react'
+import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React, { useState } from 'react'
 
@@ -22,28 +23,28 @@ const Sidebar = () => {
               </div>
               <ul className='flex flex-col items-start justify-center gap-4 mb-20'>
                     <li>
-                        <button type='button' className='cursor-pointer p-4 hover:bg-muted  transition duration-300'>
+                        <Link href='/weather' className={`${pathname === '/weather' ? 'bg-muted-two  text-white' : ''} p-2 rounded-lg flex items-center justify-center gap-2`}>
                           <span className='text-lg poppins-semibold text-muted-foreground flex  items-center justify-center gap-2'>
                               <CloudSun className='text-muted-foreground' size={27} />
-                              {sideIsOpen && <span className='text-muted-foreground'>  Dashboard</span>}
+                              {sideIsOpen && <span className='text-muted-foreground'>  Weather</span>}
                             </span>
-                        </button>
+                        </Link>
                     </li>
                     <li>
-                        <button type='button' className='cursor-pointer p-4 hover:bg-muted  transition duration-300'>
+                        <Link href='/map' className={`${pathname === '/map' ? 'bg-muted-two text-white' : ''} p-2 rounded-lg flex items-center justify-center gap-2`}>
                         <span className='text-lg poppins-semibold text-muted-foreground flex  items-center justify-center gap-2'>
                               <Map className='text-muted-foreground' size={27} />
-                              {sideIsOpen && <span className='text-muted-foreground'>  Maps</span>}
+                              {sideIsOpen && <span className='text-muted-foreground'>  Map</span>}
                             </span>
-                        </button>
+                        </Link>
                   </li>
                   <li>
-                        <button type='button' className='cursor-pointer p-4 hover:bg-muted  transition duration-300'>
+                        <Link href='/help' className={`${pathname === '/help' ? 'bg-muted-two text-white' : ''} p-2 rounded-lg flex items-center justify-center gap-2`}>
                         <span className='text-lg poppins-semibold text-muted-foreground flex  items-center justify-center gap-2'>
                               <HelpCircle className='text-muted-foreground' size={27} />
                               {sideIsOpen && <span className='text-muted-foreground'>  Help</span>}
                             </span>
-                        </button>
+                        </Link>
                     </li>
               </ul>
               <div className='grid place-items-center'>
