@@ -1,6 +1,7 @@
 'use client'
 
-import { CloudSun, Grid, HelpCircle, LogOut, Map, Menu } from 'lucide-react'
+import { SignOutButton } from '@clerk/nextjs'
+import { CloudSun, Grid, HelpCircle, LogOut, Map, Menu, User } from 'lucide-react'
 import Link from 'next/link'
 import { usePathname } from 'next/navigation'
 import React, { useState } from 'react'
@@ -45,13 +46,28 @@ const Sidebar = () => {
                               {sideIsOpen && <span className='text-muted-foreground'>  Help</span>}
                             </span>
                         </Link>
+                  </li>
+                  <li>
+                        <Link href='/profile' className={`${pathname === '/profile'  ? 'bg-muted-two text-white' : ''} p-2 rounded-lg flex items-center justify-center gap-2`}>
+                        <span className='text-lg poppins-semibold text-muted-foreground flex  items-center justify-center gap-2'>
+                              <User className='text-muted-foreground' size={27} />
+                              {sideIsOpen && <span className='text-muted-foreground'>  Profile</span>}
+                            </span>
+                        </Link>
                     </li>
               </ul>
               <div className='grid place-items-center'>
-                  <button type='button' className='cursor-pointer p-4 border-t border-t-muted-foreground hover:bg-muted flex items-center gap-2 transition duration-300'>
-                  <LogOut className='text-4xl text-muted-foreground' size={27}  />
-                  </button>
-                  {sideIsOpen && <span className='text-muted-foreground'>  Log Out</span>}
+                  {/* <button type='button' className='cursor-pointer p-4 border-t border-t-muted-foreground hover:bg-muted flex items-center gap-2 transition duration-300'>
+                  
+                  </button> */}
+                  <SignOutButton>
+                      
+                      <button type='button' className='bg-muted-two p-2 rounded-lg cursor-pointer'>
+                      {!sideIsOpen && <LogOut className='text-4xl text-muted-foreground' size={27}  /> }
+                    
+                          {sideIsOpen && <span className='text-muted-foreground flex items-center gap-x-2'><LogOut className='text-4xl text-muted-foreground' size={27} />  Log Out</span>}
+                          </button>
+                    </SignOutButton>
               </div>
           </div>
     </aside>
